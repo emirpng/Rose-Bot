@@ -20,7 +20,7 @@ from tg_bot.modules.sql import cust_filters_sql as sql
 from tg_bot.modules.connection import connected
 
 HANDLER_GROUP = 15
-BASIC_FILTER_STRING = "*Filters in this chat:*\n"
+BASIC_FILTER_STRING = "*Bu sohbetteki filterlar:*\n"
 
 
 @run_async
@@ -32,15 +32,15 @@ def list_handlers(bot: Bot, update: Update):
     if not conn == False:
         chat_id = conn
         chat_name = dispatcher.bot.getChat(conn).title
-        filter_list = f"*Filters in {chat_name}:*\n"
+        filter_list = f"*{chat_name} içindeki filtreler:*\n"
     else:
         chat_id = update.effective_chat.id
         if chat.type == "private":
             chat_name = "local filters"
-            filter_list = "*local filters:*\n"
+            filter_list = "*yerel filtreler:*\n"
         else:
             chat_name = chat.title
-            filter_list = "*Filters in {}*:\n".format(chat_name)
+            filter_list = "*{} içindeki filtreler*:\n".format(chat_name)
 
     total_count_f_fliters = sql.num_filters_per_chat(chat_id)
     filter_list += f"**Filter Count**: {total_count_f_fliters}\n"
@@ -48,7 +48,7 @@ def list_handlers(bot: Bot, update: Update):
     all_handlers = sql.get_chat_triggers(chat_id)
 
     if not all_handlers:
-        update.effective_message.reply_text("No filters in {}!".format(chat_name))
+        update.effective_message.reply_text("{} içinde filtre yok!".format(chat_name))
         return
 
     for keyword in all_handlers:
