@@ -407,8 +407,8 @@ doin?
 
 __mod_name__ = "Filters"
 
-FILTER_HANDLER = CommandHandler("filter", filters)
-STOP_HANDLER = CommandHandler("stop", stop_filter)
+FILTER_HANDLER = CommandHandler("add", filters)
+STOP_HANDLER = CommandHandler("del", stop_filter)
 RMALLFILTER_HANDLER = CommandHandler("removeallfilters", rmall_filters, filters=Filters.group)
 RMALLFILTER_CALLBACK = CallbackQueryHandler(rmall_callback, pattern=r"filters_.*")
 LIST_HANDLER = DisableAbleCommandHandler("filters", list_handlers, admin_ok=True)
