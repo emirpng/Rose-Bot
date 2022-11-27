@@ -35,11 +35,11 @@ def promote(bot: Bot, update: Update, args: List[str]) -> str:
 
     user_member = chat.get_member(user_id)
     if user_member.status == 'administrator' or user_member.status == 'creator':
-        message.reply_text("How am I meant to promote someone that's already an admin?")
+        message.reply_text("Halihazırda yönetici olan birini nasıl terfi ettirebilirim? 😆")
         return ""
 
     if user_id == bot.id:
-        message.reply_text("I can't promote myself! Get an admin to do it for me.")
+        message.reply_text("Kendimi tanıtamıyorum!  Bunu benim için yapacak bir yönetici bulun.")
         return ""
 
     # set same perms as bot - bot can't assign higher perms than itself!
