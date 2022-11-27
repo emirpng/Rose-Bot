@@ -18,24 +18,24 @@ from tg_bot.modules.helper_funcs.chat_status import is_user_admin
 from tg_bot.modules.helper_funcs.misc import paginate_modules
 
 PM_START_TEXT = """
-**Merhaba {}, Benim adım {}! 
+**Merhaba {}, Benim adım {}!
+
 Ben bir Roll Roys Federasyonuna ait dijital grup asistanıyım**
 """
 
 HELP_STRINGS = """
-Hey there! My name is *{}*.
-I'm a modular group management bot with a few fun extras! Have a look at the following for an idea of some of \
-the things I can help you with.
-*Main* commands available:
- - /start: start the bot
- - /help: PM's you this message.
- - /help <module name>: PM's you info about that module.
- - /donate: information about how to donate!
+Merhaba! Benim adım *{}*.
+Ben bir gruplar için tasarlanmış dijital grup asistanıyım.
+
+**Komutlar:**
+ - /start: Botu başlatır
+ - /help: Yardım bilgileri
+ - /help <modül ismi>: PM'den bilgi verir
  - /settings:
-   - in PM: will send you your settings for all supported modules.
-   - in a group: will redirect you to pm, with all that chat's settings.
+   - PM'de: desteklenen tüm modüller için ayarlarınızı size gönderir.
+   - bir grupta: sizi tüm bu sohbet ayarlarıyla birlikte özel mesaja yönlendirecek.
 {}
-And the following:
+Ve aşağıdakiler:
 """.format(dispatcher.bot.first_name, "" if not ALLOW_EXCL else "\nAll commands can either be used with / or !.\n")
 
 DONATE_STRING = """Heya, glad to hear you want to donate!
